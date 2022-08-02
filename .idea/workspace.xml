@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1f57ff46-2ef7-496d-bb14-3027046707af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/domain/Certificate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/domain/Commune.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/domain/District.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/domain/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/domain/Province.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/CertificateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/CommuneDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/DistrictDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/EmployeeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/ProvinceDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/search/CertificateSearchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/search/CommuneSearchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/search/DistrictSearchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/search/EmployeeSearchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/search/ProvinceSearchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/file" afterDir="true" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/file/WriteReadFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/repository/CertificateRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/repository/CommuneRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/repository/DistrictRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/repository/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/repository/ProvinceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestCertificateController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestCommuneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestDistrictController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestEmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestProvinceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/CertificateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/CommuneService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/DistrictService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/ProvinceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/ValidEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/CertificateServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/CommuneServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/DistrictServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/ProvinceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/ValidEmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/utils/Error.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/utils/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-app/da-app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/da-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/da-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-app/src/main/java/com/globits/config/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-app/src/main/java/com/globits/config/DatabaseConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-app/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/da-app/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="2CHVwQJkcYtB9id4eIgQRzSgPKt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="E:/tai-lieu-java/lv3" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RunManager">
+    <configuration name="DAApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="da-app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.globits.DAApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Dell\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\webservice\L2" />
+          <option name="myCopyRoot" value="D:\webservice\L2" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\webservice\L2" />
+          <option name="myCopyRoot" value="D:\webservice\L2" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1f57ff46-2ef7-496d-bb14-3027046707af" name="Default Changelist" comment="" />
+      <created>1658459738260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658459738260</updated>
+      <workItem from="1658459741785" duration="31551000" />
+      <workItem from="1658712454225" duration="29948000" />
+      <workItem from="1658801039033" duration="19033000" />
+      <workItem from="1658885930348" duration="28697000" />
+      <workItem from="1658972237571" duration="29546000" />
+      <workItem from="1659058169814" duration="100000" />
+      <workItem from="1659058295803" duration="17068000" />
+      <workItem from="1659100793911" duration="6567000" />
+      <workItem from="1659146471028" duration="18286000" />
+      <workItem from="1659321266753" duration="592000" />
+      <workItem from="1659419943306" duration="482000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
