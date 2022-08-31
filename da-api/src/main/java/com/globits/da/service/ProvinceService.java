@@ -14,13 +14,12 @@ public interface ProvinceService extends GenericService<Province, UUID> {
     ProvinceDto add(ProvinceDto dto);
     // edit a province
     ProvinceDto edit(UUID id, ProvinceDto dto);
-    // get one province by id
+    // get province by id
     ProvinceDto getById(UUID id);
-
     // get all province
     List<ProvinceDto> getAll();
     // delete province
-    Boolean deletedById(UUID id);
+    boolean deletedById(UUID id);
     // search province
     Page<ProvinceDto> searchByPage(ProvinceSearchDto dto);
 }

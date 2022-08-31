@@ -22,7 +22,6 @@ public class EmployeeDto extends BaseObjectDto {
     }
 
     public EmployeeDto(Employee entity) {
-        if(entity != null) {
             this.setId(entity.getId());
             this.code = entity.getCode();
             this.name = entity.getName();
@@ -46,8 +45,8 @@ public class EmployeeDto extends BaseObjectDto {
                 }
                 this.setCertificateDtos(set);
             }
-        }
     }
+    //region getter-setter
     public String getCode() {
         return code;
     }
@@ -119,4 +118,5 @@ public class EmployeeDto extends BaseObjectDto {
     public void setCertificateDtos(Set<CertificateDto> certificateDtos) {
         this.certificateDtos = certificateDtos;
     }
+    //endregion
 }

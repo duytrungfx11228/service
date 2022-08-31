@@ -26,11 +26,11 @@ import java.util.UUID;
 public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID> implements CertificateService {
 
     @Autowired
-    CertificateRepository repos;
+    private CertificateRepository repos;
     @Autowired
-    ProvinceRepository provinceRepos;
+    private ProvinceRepository provinceRepos;
     @Autowired
-    EmployeeRepository employeeRepos;
+    private EmployeeRepository employeeRepos;
     @Override
     public CertificateDto add(CertificateDto dto) {
         if (dto == null){
@@ -40,7 +40,7 @@ public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID
         entity.setCode(dto.getCode());
         entity.setName(dto.getName());
         entity.setType(dto.getType());
-        entity.setDateEfective(dto.getDateEfecttive());
+        entity.setDateRange(dto.getDateRange());
         entity.setDateExpiration(dto.getDateExpiration());
         if (dto.getProvinceDto().getId() != null){
             Province province = provinceRepos.getOne(dto.getProvinceDto().getId());
@@ -54,10 +54,7 @@ public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID
                 entity.setEmployee(employee);
             }
         }
-        if (entity != null){
-            return new CertificateDto(repos.save(entity));
-        }
-        return null;
+        return new CertificateDto(repos.save(entity));
     }
 
     @Override
@@ -69,7 +66,7 @@ public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID
         entity.setCode(dto.getCode());
         entity.setName(dto.getName());
         entity.setType(dto.getType());
-        entity.setDateEfective(dto.getDateEfecttive());
+        entity.setDateRange(dto.getDateRange());
         entity.setDateExpiration(dto.getDateExpiration());
         if (checkSameType(dto)){
             if (dto.getProvinceDto().getId() != null){
@@ -83,18 +80,7 @@ public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID
                 entity.setEmployee(employee);
             }
         }
-        if (entity != null){
-            return new CertificateDto(repos.save(entity));
-        }
-        return null;
-    }
-
-    @Override
-    public CertificateDto getById(UUID id) {
-        if (id == null){
-            return  null;
-        }
-        return new CertificateDto(repos.getOne(id));
+        return new CertificateDto(repos.save(entity));
     }
 
     @Override
@@ -103,7 +89,7 @@ public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID
     }
 
     @Override
-    public Boolean delById(UUID id) {
+    public boolean delById(UUID id) {
         if (id != null){
             repos.deleteById(id);
             return true;
@@ -152,20 +138,14 @@ public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID
     }
 
     @Override
-    public Boolean checkSameType(CertificateDto dto) {
+    public boolean checkSameType(CertificateDto dto) {
         int count = repos.countCertificateByEmployee(dto.getEmployeeDto().getId(), dto.getType());
-        if (count >= 3){
-            return false;
-        }
-        return true;
+        return count < 3;
     }
 
     @Override
-    public Boolean checkSameProvince(CertificateDto dto) {
+    public boolean checkSameProvince(CertificateDto dto) {
         int count = repos.countCertificateByProvince(dto.getEmployeeDto().getId(),dto.getProvinceDto().getId(), dto.getType());
-        if (count >= 1){
-            return false;
-        }
-        return true;
+        return count < 1;
     }
 }

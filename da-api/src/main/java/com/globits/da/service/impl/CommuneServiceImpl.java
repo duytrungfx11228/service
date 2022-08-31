@@ -22,10 +22,10 @@ import java.util.UUID;
 @Service
 public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implements CommuneService {
     @Autowired
-    CommuneRepository repos;
+    private CommuneRepository repos;
 
     @Autowired
-    DistrictRepository districtRepository;
+    private DistrictRepository districtRepository;
 
     @Override
     public CommuneDto add(CommuneDto dto) {
@@ -38,26 +38,22 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
             }
             return new CommuneDto(repos.save(entity));
         }
-        return null;
+        return new CommuneDto();
     }
 
     @Override
     public CommuneDto edit(UUID id, CommuneDto dto) {
        if (id == null || dto == null){
-           return  null;
+           return  new CommuneDto();
        }
        Commune entity = repos.getOne(id);
        entity.setName(dto.getName());
        entity.setCode(dto.getCode());
         if (dto.getDistrictDto() != null && dto.getDistrictDto().getId() != null){
             entity.setDistrict(districtRepository.getOne(dto.getDistrictDto().getId()));
+            return new CommuneDto(repos.save(entity));
         }
-        return new CommuneDto(repos.save(entity));
-    }
-
-    @Override
-    public CommuneDto getById(UUID id) {
-        return new CommuneDto(repos.getOne(id));
+        return new CommuneDto();
     }
 
     @Override
@@ -66,7 +62,7 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
     }
 
     @Override
-    public Boolean delById(UUID id) {
+    public boolean delById(UUID id) {
         if (id != null){
             repos.deleteById(id);
             return true;
@@ -114,5 +110,10 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
         Pageable pageable = PageRequest.of(pageIndex, pageSize);
 
         return new PageImpl<>(entities,pageable,count);
+    }
+
+    @Override
+    public CommuneDto getById(UUID id) {
+        return new CommuneDto(repos.getOne(id));
     }
 }

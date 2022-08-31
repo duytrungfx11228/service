@@ -16,11 +16,7 @@ public interface EmployeeService {
     //get all employee
     List<EmployeeDto> getAllEmployee();
     // delete employee
-    Boolean deleteById(UUID id);
-    // write file excel
-    Boolean write( String path);
-    // read  file excel
-    List<EmployeeDto> read(String path);
+    boolean deleteById(UUID id);
     // import file excel
     Response<List<EmployeeDto>> importExcel(MultipartFile file);
     //export file excel

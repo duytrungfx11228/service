@@ -17,7 +17,7 @@ public class District extends BaseObject {
     @Column
     private String name;
     @ManyToOne
-    @JoinColumn(name = "province_id")
+    @JoinColumn
     private Province province;
     @OneToMany(mappedBy = "district",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
     private Set<Commune> communes;
@@ -34,6 +34,7 @@ public class District extends BaseObject {
         }
     }
 
+    //region getter-setter
     public Set<Commune> getCommunes() {
         return communes;
     }
@@ -60,5 +61,6 @@ public class District extends BaseObject {
     public void setProvince(Province province) {
         this.province = province;
     }
+    //endregion
 
 }

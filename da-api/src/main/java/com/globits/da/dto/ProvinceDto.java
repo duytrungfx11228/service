@@ -45,6 +45,7 @@ public class ProvinceDto extends BaseObjectDto{
         this.name = province.getName();
     }
 
+    //region getter-setter
     public String getCode() {
         return code;
     }
@@ -76,4 +77,5 @@ public class ProvinceDto extends BaseObjectDto{
     public void setCertificateDtoSet(Set<CertificateDto> certificateDtoSet) {
         this.certificateDtoSet = certificateDtoSet;
     }
+    //endregion
 }

@@ -48,6 +48,7 @@ public class DistrictDto extends BaseObjectDto {
         }
     }
 
+    //region getter-setter
     public ProvinceDto getProvinceDto() {
         return provinceDto;
     }
@@ -74,4 +75,5 @@ public class DistrictDto extends BaseObjectDto {
     public void setCommuneList(Set<CommuneDto> communeList) {
         this.communeList = communeList;
     }
+    //endregion
 }

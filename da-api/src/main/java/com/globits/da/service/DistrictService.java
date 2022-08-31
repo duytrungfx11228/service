@@ -14,12 +14,12 @@ public interface DistrictService extends GenericService<District, UUID> {
     DistrictDto add(DistrictDto dto);
     // edi a district
     DistrictDto edit(UUID id, DistrictDto dto);
-    // get one district by id
+    // get district by id
     DistrictDto getById(UUID id);
     // get all district
     List<DistrictDto> getAll();
     // delete one district
-    Boolean delById(UUID id);
+    boolean delById(UUID id);
     // search By page
     Page<DistrictDto> searchByPage(DistrictSearchDto dto);
     // get list district by province Id

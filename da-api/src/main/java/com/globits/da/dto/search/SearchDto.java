@@ -15,7 +15,8 @@ public class SearchDto {
 	private UUID productCategory;
 	private Date fromDate;
 	private Date toDate;
-	
+
+	//region setter-getter
 	public UUID getProductCategory() {
 		return productCategory;
 	}
@@ -82,6 +83,7 @@ public class SearchDto {
 	public void setToDate(Date toDate) {
 		this.toDate = toDate;
 	}
+	//endregion
 	
 	
 }

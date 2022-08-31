@@ -6,7 +6,7 @@ import com.globits.da.dto.CertificateDto;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 @Entity
 @Table(name = "tbl_certificate")
 @XmlRootElement
@@ -18,14 +18,14 @@ public class Certificate extends BaseObject {
     @Column
     private String type;
     @Column
-    private LocalDateTime dateEfective;
+    private LocalDateTime dateRange;
     @Column
     private LocalDateTime dateExpiration;
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn
     private Employee employee;
     @ManyToOne
-    @JoinColumn(name = "province_id")
+    @JoinColumn
     private Province province;
 
     public Certificate() {
@@ -36,10 +36,11 @@ public class Certificate extends BaseObject {
         this.code = dto.getCode();
         this.name = dto.getName();
         this.type = dto.getType();
-        this.dateEfective = dto.getDateEfecttive();
+        this.dateRange = dto.getDateRange();
         this.dateExpiration = dto.getDateExpiration();
     }
 
+    //region getter-setter
     public String getCode() {
         return code;
     }
@@ -56,12 +57,12 @@ public class Certificate extends BaseObject {
         this.name = name;
     }
 
-    public LocalDateTime getDateEfective() {
-        return dateEfective;
+    public LocalDateTime getDateRange() {
+        return dateRange;
     }
 
-    public void setDateEfective(LocalDateTime dateEfective) {
-        this.dateEfective = dateEfective;
+    public void setDateRange(LocalDateTime dateRange) {
+        this.dateRange = dateRange;
     }
 
     public LocalDateTime getDateExpiration() {
@@ -95,4 +96,5 @@ public class Certificate extends BaseObject {
     public void setType(String type) {
         this.type = type;
     }
+    //endregion
 }

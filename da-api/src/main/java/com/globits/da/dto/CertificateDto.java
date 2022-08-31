@@ -4,26 +4,23 @@ import com.globits.core.dto.BaseObjectDto;
 import com.globits.da.domain.Certificate;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 public class CertificateDto extends BaseObjectDto {
     private String code;
     private String name;
     private String type;
-    private LocalDateTime dateEfecttive;
+    private LocalDateTime dateRange;
     private LocalDateTime dateExpiration;
     private ProvinceDto provinceDto;
     private EmployeeDto employeeDto;
-    public CertificateDto() {
-    }
 
     public CertificateDto(Certificate entity) {
-        if (entity != null){
             this.setId(entity.getId());
             this.code = entity.getCode();
             this.name = entity.getName();
             this.type = entity.getType();
-            this.dateEfecttive = entity.getDateEfective();
+            this.dateRange = entity.getDateRange();
             this.dateExpiration = entity.getDateExpiration();
             if (entity.getEmployee() != null){
                 this.employeeDto = new EmployeeDto(entity.getEmployee());
@@ -31,10 +28,9 @@ public class CertificateDto extends BaseObjectDto {
             if (entity.getProvince() != null){
                 this.provinceDto = new ProvinceDto(entity.getProvince());
             }
-        }
-
     }
 
+    //region getter-setter
     public String getType() {
         return type;
     }
@@ -59,12 +55,12 @@ public class CertificateDto extends BaseObjectDto {
         this.name = name;
     }
 
-    public LocalDateTime getDateEfecttive() {
-        return dateEfecttive;
+    public LocalDateTime getDateRange() {
+        return dateRange;
     }
 
-    public void setDateEfecttive(LocalDateTime dateEfecttive) {
-        this.dateEfecttive = dateEfecttive;
+    public void setDateRange(LocalDateTime dateRange) {
+        this.dateRange = dateRange;
     }
 
     public LocalDateTime getDateExpiration() {
@@ -90,6 +86,7 @@ public class CertificateDto extends BaseObjectDto {
     public void setEmployeeDto(EmployeeDto employeeDto) {
         this.employeeDto = employeeDto;
     }
+    //endregion
 
 
 }

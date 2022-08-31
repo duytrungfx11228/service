@@ -17,7 +17,7 @@ import java.util.UUID;
 public class RestDistrictController {
 
     @Autowired
-    DistrictService districtService;
+    private DistrictService districtService;
 
     @PostMapping
     public ResponseEntity<DistrictDto> add(@RequestBody DistrictDto dto){

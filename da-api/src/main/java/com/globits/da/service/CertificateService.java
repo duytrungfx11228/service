@@ -12,16 +12,14 @@ public interface CertificateService {
     CertificateDto add(CertificateDto dto);
     // edit  certificate
     CertificateDto edit(UUID id, CertificateDto dto);
-    // get one certificate by id
-    CertificateDto getById(UUID id);
     // get all certificate
     List<CertificateDto> getAll();
     // delete one certificate
-    Boolean delById(UUID id);
+    boolean delById(UUID id);
     //search by page
     Page<CertificateDto> searchByPage(CertificateSearchDto dto);
     // check certificate
-    Boolean checkSameType(CertificateDto dto);
+    boolean checkSameType(CertificateDto dto);
 
-    Boolean checkSameProvince(CertificateDto dto);
+    boolean checkSameProvince(CertificateDto dto);
 }

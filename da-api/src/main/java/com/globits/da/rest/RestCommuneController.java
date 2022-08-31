@@ -16,7 +16,7 @@ import java.util.UUID;
 @RequestMapping("/api/communes")
 public class RestCommuneController {
     @Autowired
-    CommuneService communeService;
+    private CommuneService communeService;
 
     @PostMapping
     public ResponseEntity<CommuneDto> add(@RequestBody CommuneDto dto){

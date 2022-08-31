@@ -20,7 +20,7 @@ import java.util.UUID;
 @RequestMapping("/api/employee")
 public class RestEmployeeController {
     @Autowired
-    EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     @PostMapping
     public Response<EmployeeDto> save(@RequestBody EmployeeDto dto){
@@ -29,25 +29,26 @@ public class RestEmployeeController {
 
     @PutMapping("/{id}")
     public Response<EmployeeDto> update(@PathVariable UUID id, @RequestBody EmployeeDto dto){
-
         return employeeService.edit(id,dto);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable UUID id){
-
         return new ResponseEntity<>(employeeService.deleteById(id), HttpStatus.OK);
     }
     @GetMapping("getList")
     public ResponseEntity<List<EmployeeDto>> getList(){
-
         return new ResponseEntity<>(employeeService.getAllEmployee(),HttpStatus.OK);
     }
     @GetMapping("/export")
-    public void exportFile(HttpServletResponse response) throws IOException {
+    public boolean exportFile(HttpServletResponse response) throws IOException {
         ByteArrayInputStream byteArrayInputStream = employeeService.exportExcel();
+        if (byteArrayInputStream == null){
+            return false;
+        }
         response.setContentType("application/octet-stream");
         response.setHeader("Content-Disposition","attachment; filename=Employee.xlsx");
         IOUtils.copy(byteArrayInputStream, response.getOutputStream());
+        return true;
     }
     @GetMapping("/import")
     public Response<List<EmployeeDto>> importFile(@RequestBody MultipartFile file){

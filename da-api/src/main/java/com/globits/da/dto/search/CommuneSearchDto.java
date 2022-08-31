@@ -5,6 +5,7 @@ public class CommuneSearchDto {
     private Integer pageSize;
     private String keyWord;
 
+    //region getter-setter
     public Integer getPageIndex() {
         return pageIndex;
     }
@@ -28,4 +29,5 @@ public class CommuneSearchDto {
     public void setKeyWord(String keyWord) {
         this.keyWord = keyWord;
     }
+    //endregion
 }

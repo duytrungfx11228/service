@@ -1,6 +1,12 @@
 package com.globits.da;
 
 public class Constants {
+	public static final String STT = "STT";
+	public static final String NAME = "Name";
+	public static final String AGE = "Age";
+	public static final String CODE = "Code";
+	public static final String EMAIL = "Email";
+	public static final String PHONE = "Phone";
 	public static final int CODE_MIN_LENGTH = 6;
 	public static final int CODE_MAX_LENGTH = 10;
 	public static final int PHONE_MAX_LENGTH = 11;

@@ -47,14 +47,11 @@ public class CommuneDto extends BaseObjectDto {
     }
 
     public CommuneDto(Commune commune) {
-        if (commune != null){
             this.setId(commune.getId());
             this.code = commune.getCode();
             this.name = commune.getName();
             if (commune.getDistrict() != null ){
                 this.districtDto = new DistrictDto(commune.getDistrict(),true);
             }
-        }
-
     }
 }

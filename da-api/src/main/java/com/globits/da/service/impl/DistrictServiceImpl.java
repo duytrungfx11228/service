@@ -25,9 +25,9 @@ import java.util.*;
 @Service
 public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> implements DistrictService {
     @Autowired
-    DistrictRepository repos;
+    private DistrictRepository repos;
     @Autowired
-    ProvinceRepository provinceRepository;
+    private ProvinceRepository provinceRepository;
     @Override
     public DistrictDto add(DistrictDto dto) {
         District entity = new District();
@@ -53,13 +53,13 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
             entity = repos.save(entity);
             return new DistrictDto(entity);
         }
-       return null;
+       return new DistrictDto();
     }
 
     @Override
     public DistrictDto edit(UUID id, DistrictDto dto) {
         if(id == null || dto == null){
-           return null;
+           return new DistrictDto();
         }
         District entity = repos.getOne(id);
         entity.setCode(dto.getCode());
@@ -90,12 +90,9 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
 
     @Override
     public DistrictDto getById(UUID id) {
-        if (id == null){
-            return null;
-        }
-
         return new DistrictDto(repos.getOne(id));
     }
+
 
     @Override
     public List<DistrictDto> getAll() {
@@ -103,7 +100,7 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
     }
 
     @Override
-    public Boolean delById(UUID id) {
+    public boolean delById(UUID id) {
         if (id != null){
             repos.deleteById(id);
             return true;

@@ -16,7 +16,7 @@ import java.util.UUID;
 @RequestMapping("/api/certificates")
 public class RestCertificateController {
     @Autowired
-    CertificateService certificateService;
+    private CertificateService certificateService;
     @PostMapping
     public ResponseEntity<CertificateDto> add(@RequestBody CertificateDto dto){
         return new ResponseEntity<>(certificateService.add(dto), HttpStatus.OK);

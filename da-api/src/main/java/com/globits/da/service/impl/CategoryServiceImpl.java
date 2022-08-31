@@ -22,7 +22,7 @@ import com.globits.da.service.CategoryService;
 @Service
 public class CategoryServiceImpl extends GenericServiceImpl<Category, UUID> implements CategoryService{
 	@Autowired
-	CategoryRepository repos;
+	private CategoryRepository repos;
 	 
 	@Override
 	public Page<CategoryDto> getPage(int pageSize, int pageIndex) {

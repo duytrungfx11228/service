@@ -15,6 +15,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, UUID> {
     @Query("select new com.globits.da.dto.EmployeeDto(employee) from Employee employee")
     List<EmployeeDto> getListEmployee();
 
-    @Query("select count(entity.id) from Employee entity where entity.code =?1 and (entity.id <> ?2 or ?2 is null) ")
-    Long checkCode(String code, UUID id);
+    @Query("select count(entity.id) from Employee entity where entity.code =?1 ")
+    long countAllByCode(String code);
 }

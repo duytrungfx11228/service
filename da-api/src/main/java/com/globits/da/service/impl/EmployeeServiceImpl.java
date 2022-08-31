@@ -8,7 +8,7 @@ import com.globits.da.dto.CommuneDto;
 import com.globits.da.dto.DistrictDto;
 import com.globits.da.dto.EmployeeDto;
 import com.globits.da.dto.ProvinceDto;
-import com.globits.da.file.WriteReadFile;
+
 import com.globits.da.repository.CommuneRepository;
 import com.globits.da.repository.DistrictRepository;
 import com.globits.da.repository.EmployeeRepository;
@@ -17,6 +17,7 @@ import com.globits.da.service.EmployeeService;
 import com.globits.da.service.ValidEmployeeService;
 import com.globits.da.utils.Error;
 import com.globits.da.utils.Response;
+import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,29 +27,27 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.util.*;
 
-import static com.globits.da.Constants.SHEET_NAME;
+import static com.globits.da.Constants.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+    final static Logger logger = Logger.getLogger(EmployeeServiceImpl.class.getName());
     @Autowired
-    EmployeeRepository repository;
+    private EmployeeRepository repository;
     @Autowired
-    ProvinceRepository provinceRepos;
+    private ProvinceRepository provinceRepos;
     @Autowired
-    DistrictRepository districtRepos;
+    private DistrictRepository districtRepos;
     @Autowired
-    CommuneRepository communeRepos;
+    private CommuneRepository communeRepos;
     @Autowired
-    ValidEmployeeService validEmployeeService;
+    private ValidEmployeeService validEmployeeService;
     @Override
     public Response<EmployeeDto> add(EmployeeDto employeeDto) {
-            if (employeeDto == null){
-                return new Response<>(null, Error.DTO_ERROR);
+            Error error = validEmployeeService.validEmployee(employeeDto);
+            if (error != Error.OK){
+                return new Response<>(new EmployeeDto(),error);
             }
-            if (validEmployeeService.validEmployee(employeeDto,null) != Error.OK){
-                return new Response<>(null,validEmployeeService.validEmployee(employeeDto,null));
-            }
-
             Employee entity = new Employee();
             entity.setCode(employeeDto.getCode());
             entity.setName(employeeDto.getName());
@@ -67,21 +66,19 @@ public class EmployeeServiceImpl implements EmployeeService {
                 Commune commune = communeRepos.getOne(employeeDto.getCommuneDto().getId());
                 entity.setCommune(commune);
             }
-            if (validEmployeeService.validAddress(entity) != Error.OK){
-                return new Response<>(null,validEmployeeService.validAddress(entity));
-            }
+
             EmployeeDto dto = new EmployeeDto(repository.save(entity));
             return new Response<>(dto);
-
     }
 
     @Override
     public Response<EmployeeDto> edit(UUID id, EmployeeDto employeeDto) {
-        if (id == null || employeeDto == null){
-            return null;
+        if (id == null ){
+            return new Response<>(new EmployeeDto());
         }
-        if (validEmployeeService.validEmployee(employeeDto,id) != Error.OK){
-            return new Response<>(null,validEmployeeService.validEmployee(employeeDto,id));
+        Error error = validEmployeeService.validEmployee(employeeDto);
+        if (error != Error.OK){
+            return new Response<>(new EmployeeDto(),error);
         }
         Employee entity = repository.getOne(id);
         entity.setCode(employeeDto.getCode());
@@ -103,21 +100,18 @@ public class EmployeeServiceImpl implements EmployeeService {
                    entity.setCommune(commune);
                 }
         }
-        if (validEmployeeService.validAddress(entity) != Error.OK){
-            return new Response<>(null,validEmployeeService.validAddress(entity));
-        }
+
         EmployeeDto dto = new EmployeeDto(repository.save(entity));
         return new Response<>(dto);
     }
 
     @Override
     public List<EmployeeDto> getAllEmployee() {
-
         return repository.getListEmployee();
     }
 
     @Override
-    public Boolean deleteById(UUID id) {
+    public boolean deleteById(UUID id) {
         if (id != null){
             repository.deleteById(id);
             return true;
@@ -126,21 +120,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Boolean write( String path) {
-        List<EmployeeDto> list = getAllEmployee();
-
-        return WriteReadFile.writeFile(list,path);
-    }
-
-    @Override
-    public List<EmployeeDto> read(String path) {
-        return WriteReadFile.readFile(path);
-    }
-
-    @Override
     public Response<List<EmployeeDto>> importExcel(MultipartFile file) {
         List<EmployeeDto> dtoList = new ArrayList<>();
-        String message = "Error: ";
+        StringBuilder message = new StringBuilder("Error: ");
 
         try {
             InputStream inputStream = file.getInputStream();
@@ -163,9 +145,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 dto.setProvinceDto(new ProvinceDto(UUID.fromString(fm.formatCellValue(row.getCell(6)))));
                 dto.setDistrictDto(new DistrictDto(UUID.fromString(fm.formatCellValue(row.getCell(7)))));
                 dto.setCommuneDto(new CommuneDto(UUID.fromString(fm.formatCellValue(row.getCell(8)))));
-                if (validEmployeeService.validEmployee(dto,null) != Error.OK ||
-                        validEmployeeService.validAddress(new Employee(dto) )!= Error.OK){
-                    message += rowNum +"," ;
+                if (validEmployeeService.validEmployee(dto) != Error.OK ){
+                    message.append(rowNum).append(",");
                     continue;
                 }
                 add(dto);
@@ -173,11 +154,11 @@ public class EmployeeServiceImpl implements EmployeeService {
             }
             inputStream.close();
             workbook.close();
-            return new Response<>(dtoList, message);
+
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
-        return null;
+        return new Response<>(dtoList, message.toString());
     }
 
     @Override
@@ -188,7 +169,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Sheet sheet =  workbook.createSheet(SHEET_NAME);
         int rowNum = 0;
         Cell cell;
-        String[] tile = {"STT","Code","Name","Email","Phone","Age"};
+        String[] tile = {STT,CODE,NAME,EMAIL,PHONE,AGE};
         Row row = sheet.createRow(rowNum);
         for (int i = 0; i < tile.length; i++) {
             cell = row.createCell(i);
@@ -221,8 +202,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             workbook.close();
             byteAOS.close();
         } catch (IOException e) {
-            System.out.println(e.getMessage());;
-            return null;
+            logger.error(e.getMessage());
         }
         return new ByteArrayInputStream(byteAOS.toByteArray());
     }

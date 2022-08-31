@@ -27,7 +27,7 @@ import java.util.*;
 @Service
 public class ProvinceServiceImpl extends GenericServiceImpl<Province, UUID> implements ProvinceService {
     @Autowired
-    ProvinceRepository repo;
+    private ProvinceRepository repo;
 
     @Override
     public ProvinceDto add(ProvinceDto dto) {
@@ -64,13 +64,13 @@ public class ProvinceServiceImpl extends GenericServiceImpl<Province, UUID> impl
 
             return new ProvinceDto(repo.save(entity));
         }
-        return null;
+        return new ProvinceDto();
     }
 
     @Override
     public ProvinceDto edit(UUID id, ProvinceDto dto) {
         if (id == null || dto == null){
-           return null;
+           return new ProvinceDto();
         }
         Province entity = repo.getOne(id);
         entity.setCode(dto.getCode());
@@ -118,22 +118,17 @@ public class ProvinceServiceImpl extends GenericServiceImpl<Province, UUID> impl
 
     @Override
     public ProvinceDto getById(UUID id) {
-        Province entity = repo.getOne(id);
-        if (entity != null) {
-            return new ProvinceDto(entity);
-        }
-        return null;
+        return new ProvinceDto(repo.getOne(id));
     }
 
 
     @Override
     public List<ProvinceDto> getAll() {
-       List<ProvinceDto> list = repo.getAllProvince();
-        return list;
+        return repo.getAllProvince();
     }
 
     @Override
-    public Boolean deletedById(UUID id) {
+    public boolean deletedById(UUID id) {
         if (id != null){
             repo.deleteById(id);
             return true;

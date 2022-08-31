@@ -1,9 +1,8 @@
 package com.globits.da.file;
 
-import com.globits.da.dto.CommuneDto;
-import com.globits.da.dto.DistrictDto;
+
 import com.globits.da.dto.EmployeeDto;
-import com.globits.da.dto.ProvinceDto;
+
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -14,11 +13,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
+import org.apache.log4j.Logger;
 
 import static com.globits.da.Constants.SHEET_NAME;
 
 public class WriteReadFile {
+    final static Logger logger = Logger.getLogger(WriteReadFile.class.getName());
     // ghi danh sach employee ra file excel
      public  static Boolean writeFile(List<EmployeeDto> list, String path){
         HSSFWorkbook workbook = new HSSFWorkbook();
@@ -37,7 +37,7 @@ public class WriteReadFile {
         }
         // ghi du lieu theo cot
         for (EmployeeDto item: list) {
-            rowNum++;
+            rowNum ++;
             row = sheet.createRow(rowNum);
             cell = row.createCell(0);
             cell.setCellValue(rowNum);
@@ -56,10 +56,12 @@ public class WriteReadFile {
         try {
             FileOutputStream fos = new FileOutputStream(file);
             workbook.write(fos);
+            workbook.close();
             fos.close();
+            logger.info("write file successful");
             return true;
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
          return false;
     }
@@ -86,11 +88,10 @@ public class WriteReadFile {
                 dtoList.add(dto);
             }
             fis.close();
-            return  dtoList;
+            workbook.close();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
-
-         return null;
+         return dtoList;
     }
 }

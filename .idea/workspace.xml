@@ -46,11 +46,56 @@
       <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/ValidEmployeeServiceImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/utils/Error.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/utils/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/da-api/src/main/resources/log4j.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/da-app/da-app.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/da.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/UI-Lib-dummy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/UI-Lib-dummy.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-3.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-4.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-4.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-5.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-5.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-6.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-6.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-7.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-7.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-8.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-8.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/badges/badge-9.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/badges/badge-9.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/edit.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/edit.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/illustrations/1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/illustrations/1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/illustrations/2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/illustrations/2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/illustrations/announcement.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/illustrations/announcement.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/illustrations/designer.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/illustrations/designer.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/illustrations/lighthouse.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/illustrations/lighthouse.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/illustrations/posting_photo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/illustrations/posting_photo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/illustrations/upgrade.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/illustrations/upgrade.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/logo-circle.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/logo-circle.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/star-rating.icons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/star-rating.icons.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/assets/images/svgIconExample.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/assets/images/svgIconExample.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/keycloak.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/keycloak.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/locales/de/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/locales/de/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/locales/en/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/locales/en/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/locales/vi/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/locales/vi/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/silent-check-sso.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/silent-check-sso.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/CalendarHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/CalendarHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/CalendarRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/CalendarRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/CalendarService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/CalendarService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/EgretCalendar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/EgretCalendar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/EventEditor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/EventEditor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/EventEditorDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/EventEditorDialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/EventTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/EventTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/views/calendar/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/views/calendar/events.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da-api/da-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/da-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/search/SearchDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/dto/search/SearchDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/repository/CategoryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/rest/RestCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/java/com/globits/da/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/da-api/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da-app/src/main/java/com/globits/config/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/da-app/src/main/java/com/globits/config/DatabaseConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da-app/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/da-app/src/main/resources/application.properties" afterDir="false" />
@@ -59,6 +104,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -77,6 +125,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/da-api/src/main/java/com/globits/da/file/WriteReadFile.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="2CHVwQJkcYtB9id4eIgQRzSgPKt" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -94,13 +145,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/tai-lieu-java/lv3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/da-api/src/main/resources" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\Desktop\L3\service\da-api\src\main\resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="DAApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -120,16 +176,16 @@
     <option name="myMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\webservice\L2" />
-          <option name="myCopyRoot" value="D:\webservice\L2" />
+          <option name="myVcsRoot" value="C:\Users\Dell\Desktop\L3\service" />
+          <option name="myCopyRoot" value="C:\Users\Dell\Desktop\L3\service" />
         </SvnCopyRootSimple>
       </list>
     </option>
     <option name="myMoreRealMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\webservice\L2" />
-          <option name="myCopyRoot" value="D:\webservice\L2" />
+          <option name="myVcsRoot" value="C:\Users\Dell\Desktop\L3\service" />
+          <option name="myCopyRoot" value="C:\Users\Dell\Desktop\L3\service" />
         </SvnCopyRootSimple>
       </list>
     </option>
@@ -152,6 +208,13 @@
       <workItem from="1659146471028" duration="18286000" />
       <workItem from="1659321266753" duration="592000" />
       <workItem from="1659419943306" duration="482000" />
+      <workItem from="1661066781630" duration="873000" />
+      <workItem from="1661311643036" duration="4428000" />
+      <workItem from="1661332058024" duration="387000" />
+      <workItem from="1661401531891" duration="332000" />
+      <workItem from="1661841655270" duration="16659000" />
+      <workItem from="1661908600166" duration="7862000" />
+      <workItem from="1661931695515" duration="1952000" />
     </task>
     <servers />
   </component>

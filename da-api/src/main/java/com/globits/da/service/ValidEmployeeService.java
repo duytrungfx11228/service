@@ -7,8 +7,8 @@ import com.globits.da.utils.Error;
 import java.util.UUID;
 
 public interface ValidEmployeeService {
-    Error validEmployee(EmployeeDto dto, UUID id);
+    Error validEmployee(EmployeeDto dto);
 
     // validate province District commune
-    Error validAddress(Employee etity);
+    Error validAddress(EmployeeDto dto);
 }

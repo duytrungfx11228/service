@@ -2,10 +2,11 @@ package com.globits.da.domain;
 
 import com.globits.core.domain.BaseObject;
 import com.globits.da.dto.CommuneDto;
-import com.globits.da.dto.DistrictDto;
+
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tbl_commune")
@@ -16,10 +17,14 @@ public class Commune extends BaseObject {
     @Column
     private String name;
     @ManyToOne
-    @JoinColumn(name = "district_id",nullable = false)
+    @JoinColumn
     private District district;
 
     public Commune() {
+    }
+
+    public Commune(UUID id) {
+        this.setId(id);
     }
 
     public Commune(CommuneDto dto) {
@@ -32,6 +37,7 @@ public class Commune extends BaseObject {
     }
 
 
+    //region getter-setter
     public String getCode() {
         return code;
     }
@@ -55,4 +61,5 @@ public class Commune extends BaseObject {
     public void setDistrict(District district) {
         this.district = district;
     }
+    //endregion
 }

@@ -5,6 +5,7 @@ public class CertificateSearchDto {
     private Integer pageSize;
     private String keyWrod;
 
+    //region getter-setter
     public Integer getPageIndex() {
         return pageIndex;
     }
@@ -28,4 +29,5 @@ public class CertificateSearchDto {
     public void setKeyWrod(String keyWrod) {
         this.keyWrod = keyWrod;
     }
+    //endregion
 }

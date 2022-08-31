@@ -32,6 +32,7 @@ public class Province extends BaseObject {
         this.name = dto.getName();
     }
 
+    //region getter-setter
     public String getCode() {
         return code;
     }
@@ -63,6 +64,7 @@ public class Province extends BaseObject {
     public void setCertificates(Set<Certificate> certificates) {
         this.certificates = certificates;
     }
+    //endregion
 
 
 }

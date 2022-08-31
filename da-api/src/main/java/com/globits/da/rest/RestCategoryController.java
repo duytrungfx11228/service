@@ -24,7 +24,7 @@ import com.globits.da.service.CategoryService;
 @RequestMapping("/api/category")
 public class RestCategoryController {
 	@Autowired
-	CategoryService categoryService;
+	private CategoryService categoryService;
 	 
 
 	@Secured({  AFFakeConstants.ROLE_ADMIN, AFFakeConstants.ROLE_SUPER_ADMIN })

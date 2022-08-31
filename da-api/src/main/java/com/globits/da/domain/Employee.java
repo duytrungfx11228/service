@@ -2,8 +2,6 @@ package com.globits.da.domain;
 
 import com.globits.core.domain.BaseObject;
 import com.globits.da.dto.EmployeeDto;
-
-
 import javax.persistence.*;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -12,40 +10,28 @@ import java.util.List;
 @Entity
 @Table(name = "tbl_employee")
 @XmlRootElement
-
 public class Employee extends BaseObject {
-
-    //@NotNull
-    //@Lenght(min = 6,max = 10)
     @Column
     private String code;
-    //@NotNull
     @Column
     private String name;
-    //@Email
-    //@NotNull
     @Column
     private String email;
-    //@NotNull
-    //@Lenght(min = 10, max = 11)
     @Column
     private String phone;
-    //@Min(value = 0)
     @Column
     private int age;
-    //@NotNull
     @ManyToOne
-    @JoinColumn(name = "province_id")
+    @JoinColumn
     private Province province;
-    //@NotNull
     @ManyToOne
-    @JoinColumn(name = "district_id")
+    @JoinColumn
     private District district;
-    //@NotNull
     @ManyToOne
-    @JoinColumn(name = "commune_id")
+    @JoinColumn
     private Commune commune;
-
+    @OneToMany(mappedBy = "employee")
+    private List<Certificate> certificateList;
     public Employee() {
     }
 
@@ -67,11 +53,8 @@ public class Employee extends BaseObject {
 
     }
 
-    @OneToMany(mappedBy = "employee")
 
-    private List<Certificate> certificateList;
-
-
+    //region getter-setter
     public Province getProvince() {
         return province;
     }
@@ -143,4 +126,5 @@ public class Employee extends BaseObject {
     public void setCertificateList(List<Certificate> certificateList) {
         this.certificateList = certificateList;
     }
+    //endregion
 }

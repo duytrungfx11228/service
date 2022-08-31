@@ -12,12 +12,12 @@ public interface CommuneService {
     CommuneDto add( CommuneDto dto);
     //edit commune
     CommuneDto edit(UUID id, CommuneDto dto);
-    // get one commune by id
-    CommuneDto getById(UUID id);
     // get all commune
     List<CommuneDto> getAll();
     // delete one commune
-    Boolean delById(UUID id);
+    boolean delById(UUID id);
     // search by page
     Page<CommuneDto> searchByPage(CommuneSearchDto searchDto);
+    // get by id
+    CommuneDto getById(UUID id);
 }

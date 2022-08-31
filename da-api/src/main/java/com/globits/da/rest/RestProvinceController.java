@@ -16,7 +16,7 @@ import java.util.UUID;
 @RequestMapping(value = "/api/province")
 public class RestProvinceController {
     @Autowired
-    ProvinceService provinceService;
+    private ProvinceService provinceService;
     // save province
     @PostMapping
     public ResponseEntity<ProvinceDto> add(@RequestBody ProvinceDto dto){

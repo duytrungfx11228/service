@@ -13,6 +13,7 @@ public class EmployeeSearchDto {
     private Integer toAge;
     private Integer fromAge;
 
+    //region getter-setter
     public UUID getId() {
         return id;
     }
@@ -76,4 +77,5 @@ public class EmployeeSearchDto {
     public void setFromAge(Integer fromAge) {
         this.fromAge = fromAge;
     }
+    //endregion
 }

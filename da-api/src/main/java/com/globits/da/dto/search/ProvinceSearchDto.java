@@ -1,12 +1,12 @@
 package com.globits.da.dto.search;
 
-import java.util.UUID;
 
 public class ProvinceSearchDto {
     private Integer pageIndex;
     private Integer pageSize;
     private String keyWord;
 
+    //region getter-setter
     public Integer getPageIndex() {
         return pageIndex;
     }
@@ -30,6 +30,5 @@ public class ProvinceSearchDto {
     public void setKeyWord(String keyWord) {
         this.keyWord = keyWord;
     }
-
-
+    //endregion
 }
