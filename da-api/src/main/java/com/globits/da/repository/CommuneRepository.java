@@ -10,6 +10,6 @@ import java.util.List;
 import java.util.UUID;
 @Repository
 public interface CommuneRepository extends JpaRepository<Commune , UUID> {
-    @Query("select new com.globits.da.dto.CommuneDto(entity) from Commune entity")
+    @Query("SELECT new com.globits.da.dto.CommuneDto(entity) FROM Commune entity")
     List<CommuneDto> getList();
 }

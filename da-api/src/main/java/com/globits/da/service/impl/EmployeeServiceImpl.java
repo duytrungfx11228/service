@@ -42,43 +42,44 @@ public class EmployeeServiceImpl implements EmployeeService {
     private CommuneRepository communeRepos;
     @Autowired
     private ValidEmployeeService validEmployeeService;
+
     @Override
     public Response<EmployeeDto> add(EmployeeDto employeeDto) {
-            Error error = validEmployeeService.validEmployee(employeeDto);
-            if (error != Error.OK){
-                return new Response<>(new EmployeeDto(),error);
-            }
-            Employee entity = new Employee();
-            entity.setCode(employeeDto.getCode());
-            entity.setName(employeeDto.getName());
-            entity.setEmail(employeeDto.getEmail());
-            entity.setPhone(employeeDto.getPhone());
-            entity.setAge(employeeDto.getAge());
-            if (employeeDto.getProvinceDto() != null && employeeDto.getProvinceDto().getId() != null){
-                Province province =  provinceRepos.getOne(employeeDto.getProvinceDto().getId());
-                entity.setProvince(province);
-            }
-            if (employeeDto.getDistrictDto() != null && employeeDto.getDistrictDto().getId() != null){
-               District district = districtRepos.getOne(employeeDto.getDistrictDto().getId());
-               entity.setDistrict(district);
-            }
-            if (employeeDto.getCommuneDto()!= null && employeeDto.getCommuneDto().getId() != null){
-                Commune commune = communeRepos.getOne(employeeDto.getCommuneDto().getId());
-                entity.setCommune(commune);
-            }
+        Error error = validEmployeeService.validEmployee(employeeDto);
+        if (error != Error.OK) {
+            return new Response<>(new EmployeeDto(), error);
+        }
+        Employee entity = new Employee();
+        entity.setCode(employeeDto.getCode());
+        entity.setName(employeeDto.getName());
+        entity.setEmail(employeeDto.getEmail());
+        entity.setPhone(employeeDto.getPhone());
+        entity.setAge(employeeDto.getAge());
+        if (employeeDto.getProvinceDto() != null && employeeDto.getProvinceDto().getId() != null) {
+            Province province = provinceRepos.getOne(employeeDto.getProvinceDto().getId());
+            entity.setProvince(province);
+        }
+        if (employeeDto.getDistrictDto() != null && employeeDto.getDistrictDto().getId() != null) {
+            District district = districtRepos.getOne(employeeDto.getDistrictDto().getId());
+            entity.setDistrict(district);
+        }
+        if (employeeDto.getCommuneDto() != null && employeeDto.getCommuneDto().getId() != null) {
+            Commune commune = communeRepos.getOne(employeeDto.getCommuneDto().getId());
+            entity.setCommune(commune);
+        }
 
-            EmployeeDto dto = new EmployeeDto(repository.save(entity));
-            return new Response<>(dto);
+        EmployeeDto dto = new EmployeeDto(repository.save(entity));
+        return new Response<>(dto);
     }
 
     @Override
     public Response<EmployeeDto> edit(UUID id, EmployeeDto employeeDto) {
-        if (id == null ){
+        if (id == null) {
             return new Response<>(new EmployeeDto());
         }
         Error error = validEmployeeService.validEmployee(employeeDto);
-        if (error != Error.OK){
-            return new Response<>(new EmployeeDto(),error);
+        if (error != Error.OK) {
+            return new Response<>(new EmployeeDto(), error);
         }
         Employee entity = repository.getOne(id);
         entity.setCode(employeeDto.getCode());
@@ -86,19 +87,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         entity.setEmail(employeeDto.getEmail());
         entity.setPhone(employeeDto.getPhone());
         entity.setAge(employeeDto.getAge());
-        if (employeeDto.getProvinceDto() != null && employeeDto.getDistrictDto() != null && employeeDto.getCommuneDto() != null){
-                if ( employeeDto.getProvinceDto().getId() != null){
-                   Province province = provinceRepos.getOne(employeeDto.getProvinceDto().getId());
-                   entity.setProvince(province);
-                }
-                if (employeeDto.getDistrictDto().getId() != null){
-                   District district = districtRepos.getOne(employeeDto.getDistrictDto().getId());
-                   entity.setDistrict(district);
-                }
-                if ( employeeDto.getCommuneDto().getId() != null){
-                   Commune commune = communeRepos.getOne(employeeDto.getCommuneDto().getId());
-                   entity.setCommune(commune);
-                }
+        if (employeeDto.getProvinceDto() != null && employeeDto.getDistrictDto() != null && employeeDto.getCommuneDto() != null) {
+            if (employeeDto.getProvinceDto().getId() != null) {
+                Province province = provinceRepos.getOne(employeeDto.getProvinceDto().getId());
+                entity.setProvince(province);
+            }
+            if (employeeDto.getDistrictDto().getId() != null) {
+                District district = districtRepos.getOne(employeeDto.getDistrictDto().getId());
+                entity.setDistrict(district);
+            }
+            if (employeeDto.getCommuneDto().getId() != null) {
+                Commune commune = communeRepos.getOne(employeeDto.getCommuneDto().getId());
+                entity.setCommune(commune);
+            }
         }
 
         EmployeeDto dto = new EmployeeDto(repository.save(entity));
@@ -112,7 +113,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean deleteById(UUID id) {
-        if (id != null){
+        if (id != null) {
             repository.deleteById(id);
             return true;
         }
@@ -133,7 +134,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             iterator.next();// row header
             DataFormatter fm = new DataFormatter();
 
-            while (iterator.hasNext()){
+            while (iterator.hasNext()) {
                 Row row = iterator.next();
                 int rowNum = Integer.parseInt(fm.formatCellValue(row.getCell(5)));
                 EmployeeDto dto = new EmployeeDto();
@@ -145,7 +146,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 dto.setProvinceDto(new ProvinceDto(UUID.fromString(fm.formatCellValue(row.getCell(6)))));
                 dto.setDistrictDto(new DistrictDto(UUID.fromString(fm.formatCellValue(row.getCell(7)))));
                 dto.setCommuneDto(new CommuneDto(UUID.fromString(fm.formatCellValue(row.getCell(8)))));
-                if (validEmployeeService.validEmployee(dto) != Error.OK ){
+                if (validEmployeeService.validEmployee(dto) != Error.OK) {
                     message.append(rowNum).append(",");
                     continue;
                 }
@@ -166,17 +167,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<EmployeeDto> list = repository.getListEmployee();
         ByteArrayOutputStream byteAOS = new ByteArrayOutputStream();
         Workbook workbook = new XSSFWorkbook();
-        Sheet sheet =  workbook.createSheet(SHEET_NAME);
+        Sheet sheet = workbook.createSheet(SHEET_NAME);
         int rowNum = 0;
         Cell cell;
-        String[] tile = {STT,CODE,NAME,EMAIL,PHONE,AGE};
+        String[] tile = {STT, CODE, NAME, EMAIL, PHONE, AGE};
         Row row = sheet.createRow(rowNum);
         for (int i = 0; i < tile.length; i++) {
             cell = row.createCell(i);
             cell.setCellValue(tile[i]);
         }
-        for (EmployeeDto item: list){
-            rowNum ++;
+        for (EmployeeDto item : list) {
+            rowNum++;
             row = sheet.createRow(rowNum);
             cell = row.createCell(0);
             cell.setCellValue(rowNum);
@@ -184,9 +185,9 @@ public class EmployeeServiceImpl implements EmployeeService {
             cell.setCellValue(item.getCode());
             cell = row.createCell(2);
             cell.setCellValue(item.getName());
-            cell= row.createCell(3);
+            cell = row.createCell(3);
             cell.setCellValue(item.getEmail());
-            cell= row.createCell(4);
+            cell = row.createCell(4);
             cell.setCellValue(item.getPhone());
             cell = row.createCell(5);
             cell.setCellValue(item.getAge());

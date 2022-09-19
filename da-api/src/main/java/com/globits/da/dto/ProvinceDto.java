@@ -4,6 +4,7 @@ import com.globits.core.dto.BaseObjectDto;
 import com.globits.da.domain.Certificate;
 import com.globits.da.domain.District;
 import com.globits.da.domain.Province;
+import org.springframework.util.CollectionUtils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,13 +27,13 @@ public class ProvinceDto extends BaseObjectDto{
         this.setId(province.getId());
         this.code = province.getCode();
         this.name = province.getName();
-        if (province.getDistrictList() != null && province.getDistrictList().size() > 0){
+        if (!CollectionUtils.isEmpty(province.getDistrictList())){
             this.setDistrict = new HashSet<>();
             for (District item: province.getDistrictList()) {
                 this.setDistrict.add(new DistrictDto(item));
             }
         }
-        if (province.getCertificates() != null){
+        if (!CollectionUtils.isEmpty(province.getCertificates())){
             this.certificateDtoSet = new HashSet<>();
             for (Certificate item: province.getCertificates()){
                 this.certificateDtoSet.add(new CertificateDto(item));

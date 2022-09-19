@@ -17,24 +17,29 @@ import java.util.UUID;
 public class RestCertificateController {
     @Autowired
     private CertificateService certificateService;
+
     @PostMapping
-    public ResponseEntity<CertificateDto> add(@RequestBody CertificateDto dto){
+    public ResponseEntity<CertificateDto> add(@RequestBody CertificateDto dto) {
         return new ResponseEntity<>(certificateService.add(dto), HttpStatus.OK);
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<CertificateDto> edit(@PathVariable UUID id, @RequestBody CertificateDto dto){
-        return new ResponseEntity<>(certificateService.edit(id,dto), HttpStatus.OK);
+    public ResponseEntity<CertificateDto> edit(@PathVariable UUID id, @RequestBody CertificateDto dto) {
+        return new ResponseEntity<>(certificateService.edit(id, dto), HttpStatus.OK);
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> delById(@PathVariable UUID id){
-        return new ResponseEntity<>(certificateService.delById(id), HttpStatus.OK) ;
+    public ResponseEntity<Boolean> delById(@PathVariable UUID id) {
+        return new ResponseEntity<>(certificateService.delById(id), HttpStatus.OK);
     }
-    @GetMapping("/getList")
-    public ResponseEntity<List<CertificateDto>> getALLCertificate(){
+
+    @GetMapping("/get-all")
+    public ResponseEntity<List<CertificateDto>> getALLCertificate() {
         return new ResponseEntity<>(certificateService.getAll(), HttpStatus.OK);
     }
-    @PostMapping("/searchByPage")
-    public ResponseEntity<Page<CertificateDto>> searchByPage( @RequestBody CertificateSearchDto dto){
+
+    @PostMapping("/search")
+    public ResponseEntity<Page<CertificateDto>> searchByPage(@RequestBody CertificateSearchDto dto) {
         return new ResponseEntity<>(certificateService.searchByPage(dto), HttpStatus.OK);
     }
 }

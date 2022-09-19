@@ -19,6 +19,7 @@ import org.springframework.util.StringUtils;
 import javax.persistence.Query;
 import java.util.List;
 import java.util.UUID;
+
 @Service
 public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implements CommuneService {
     @Autowired
@@ -29,11 +30,11 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
 
     @Override
     public CommuneDto add(CommuneDto dto) {
-        if (dto != null){
+        if (dto != null) {
             Commune entity = new Commune();
             entity.setCode(dto.getCode());
             entity.setName(dto.getName());
-            if (dto.getDistrictDto() != null && dto.getDistrictDto().getId() != null){
+            if (dto.getDistrictDto() != null && dto.getDistrictDto().getId() != null) {
                 entity.setDistrict(districtRepository.getOne(dto.getDistrictDto().getId()));
             }
             return new CommuneDto(repos.save(entity));
@@ -43,13 +44,13 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
 
     @Override
     public CommuneDto edit(UUID id, CommuneDto dto) {
-       if (id == null || dto == null){
-           return  new CommuneDto();
-       }
-       Commune entity = repos.getOne(id);
-       entity.setName(dto.getName());
-       entity.setCode(dto.getCode());
-        if (dto.getDistrictDto() != null && dto.getDistrictDto().getId() != null){
+        if (id == null || dto == null) {
+            return new CommuneDto();
+        }
+        Commune entity = repos.getOne(id);
+        entity.setName(dto.getName());
+        entity.setCode(dto.getCode());
+        if (dto.getDistrictDto() != null && dto.getDistrictDto().getId() != null) {
             entity.setDistrict(districtRepository.getOne(dto.getDistrictDto().getId()));
             return new CommuneDto(repos.save(entity));
         }
@@ -63,7 +64,7 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
 
     @Override
     public boolean delById(UUID id) {
-        if (id != null){
+        if (id != null) {
             repos.deleteById(id);
             return true;
         }
@@ -73,22 +74,23 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
     @Override
     public Page<CommuneDto> searchByPage(CommuneSearchDto dto) {
 
-        if (dto == null){
+        if (dto == null) {
             return null;
         }
         int pageIndex = dto.getPageIndex();
         int pageSize = dto.getPageSize();
-        if (pageIndex > 0){
-            pageIndex --;
+        if (pageIndex > 0) {
+            pageIndex--;
         } else {
             pageIndex = 0;
+            pageSize = 10;
         }
 
         String whereClause = "";
         String orderBy = "ORDER BY entity.createDate DESC";
-        String sqlCount = "select count(entity.id) from  Commune as entity where (1=1)   ";
-        String sql = "select new com.globits.da.dto.CommuneDto(entity) from  Commune as entity where (1=1)  ";
-        if(dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())){
+        String sqlCount = "SELECT COUNT(entity.id) FROM  Commune AS entity WHERE (1=1) ";
+        String sql = "SELECT new com.globits.da.dto.CommuneDto(entity) FROM  Commune AS entity WHERE (1=1) ";
+        if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())) {
             whereClause += "AND (entity.name LIKE :text OR entity.code LIKE :text)";
         }
         sql += whereClause + orderBy;
@@ -96,12 +98,12 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
 
         Query q = manager.createQuery(sql, CommuneDto.class);
         Query qCount = manager.createQuery(sqlCount);
-        if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())){
+        if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())) {
             q.setParameter("text", "%" + dto.getKeyWord() + "%");
             qCount.setParameter("text", "%" + dto.getKeyWord() + "%");
         }
 
-        int startPosition = pageIndex*pageSize;
+        int startPosition = pageIndex * pageSize;
         q.setFirstResult(startPosition);
         q.setMaxResults(pageSize);
         List<CommuneDto> entities = q.getResultList();
@@ -109,7 +111,7 @@ public class CommuneServiceImpl extends GenericServiceImpl<Commune, UUID> implem
 
         Pageable pageable = PageRequest.of(pageIndex, pageSize);
 
-        return new PageImpl<>(entities,pageable,count);
+        return new PageImpl<>(entities, pageable, count);
     }
 
     @Override

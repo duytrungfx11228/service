@@ -13,6 +13,6 @@ import java.util.UUID;
 @Repository
 public interface ProvinceRepository extends JpaRepository<Province, UUID> {
 
-    @Query("select new com.globits.da.dto.ProvinceDto(pr) from Province pr")
+    @Query("SELECT new com.globits.da.dto.ProvinceDto(pr) from Province pr")
     List<ProvinceDto> getAllProvince();
 }

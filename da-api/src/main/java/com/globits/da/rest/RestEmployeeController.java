@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/employee")
+@RequestMapping("/api/employees")
 public class RestEmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -35,7 +35,7 @@ public class RestEmployeeController {
     public ResponseEntity<Boolean> delete(@PathVariable UUID id){
         return new ResponseEntity<>(employeeService.deleteById(id), HttpStatus.OK);
     }
-    @GetMapping("getList")
+    @GetMapping("get-all")
     public ResponseEntity<List<EmployeeDto>> getList(){
         return new ResponseEntity<>(employeeService.getAllEmployee(),HttpStatus.OK);
     }

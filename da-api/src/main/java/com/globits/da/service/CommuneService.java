@@ -8,16 +8,16 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CommuneService {
-    //add commune
-    CommuneDto add( CommuneDto dto);
-    //edit commune
+
+    CommuneDto add(CommuneDto dto);
+
     CommuneDto edit(UUID id, CommuneDto dto);
-    // get all commune
+
     List<CommuneDto> getAll();
-    // delete one commune
+
     boolean delById(UUID id);
-    // search by page
+
     Page<CommuneDto> searchByPage(CommuneSearchDto searchDto);
-    // get by id
+
     CommuneDto getById(UUID id);
 }

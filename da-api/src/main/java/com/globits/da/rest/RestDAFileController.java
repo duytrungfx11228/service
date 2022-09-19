@@ -19,7 +19,7 @@ import com.globits.core.dto.FileDescriptionDto;
 import com.globits.core.service.FileDescriptionService;
 
 @RestController
-@RequestMapping("/api/dafile")
+@RequestMapping("/api/dafiles")
 public class RestDAFileController {
 	@Autowired
 	private Environment env;

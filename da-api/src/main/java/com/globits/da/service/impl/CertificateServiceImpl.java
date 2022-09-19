@@ -111,8 +111,8 @@ public class CertificateServiceImpl extends GenericServiceImpl<Certificate, UUID
         }
         String whereClause = "";
         String orderBy = "ORDER BY entity.createDate DESC";
-        String sql = "select new com.globits.da.dto.CertificateDto(entity) from Certificate entity where (1=1)";
-        String sqlCount = "select count(entity.id) from Certificate entity where (1=1)";
+        String sql = "SELECT new com.globits.da.dto.CertificateDto(entity) FROM Certificate entity WHERE (1=1)";
+        String sqlCount = "SELECT COUNT(entity.id) FROM Certificate entity WHERE (1=1)";
         if (dto.getKeyWrod() != null && StringUtils.hasText(dto.getKeyWrod())){
             whereClause += "AND ( entity.name LIKE :text or entity.code LIKE :text)";
         }

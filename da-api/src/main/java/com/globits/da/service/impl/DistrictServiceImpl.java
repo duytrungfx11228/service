@@ -28,6 +28,7 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
     private DistrictRepository repos;
     @Autowired
     private ProvinceRepository provinceRepository;
+
     @Override
     public DistrictDto add(DistrictDto dto) {
         District entity = new District();
@@ -37,10 +38,10 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
             if (dto.getProvinceDto() != null && dto.getProvinceDto().getId() != null) {
                 entity.setProvince(provinceRepository.getOne(dto.getProvinceDto().getId()));
             }
-            if (dto.getCommuneList() != null){
+            if (dto.getCommuneList() != null) {
                 Iterator<CommuneDto> iterators = dto.getCommuneList().iterator();
                 Set<Commune> setCommune = new HashSet<>();
-                while (iterators.hasNext()){
+                while (iterators.hasNext()) {
                     CommuneDto communeDto = iterators.next();
                     Commune commune = new Commune();
                     commune.setCode(communeDto.getCode());
@@ -53,13 +54,13 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
             entity = repos.save(entity);
             return new DistrictDto(entity);
         }
-       return new DistrictDto();
+        return new DistrictDto();
     }
 
     @Override
     public DistrictDto edit(UUID id, DistrictDto dto) {
-        if(id == null || dto == null){
-           return new DistrictDto();
+        if (id == null || dto == null) {
+            return new DistrictDto();
         }
         District entity = repos.getOne(id);
         entity.setCode(dto.getCode());
@@ -67,10 +68,10 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
         if (dto.getProvinceDto() != null && dto.getProvinceDto().getId() != null) {
             entity.setProvince(provinceRepository.getOne(dto.getProvinceDto().getId()));
         }
-        if (dto.getCommuneList() != null){
+        if (dto.getCommuneList() != null) {
             Iterator<CommuneDto> iterators = dto.getCommuneList().iterator();
             Set<Commune> setCommune = new HashSet<>();
-            while (iterators.hasNext()){
+            while (iterators.hasNext()) {
                 CommuneDto communeDto = iterators.next();
                 Commune commune = new Commune();
                 commune.setCode(communeDto.getCode());
@@ -78,7 +79,7 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
                 commune.setDistrict(entity);
                 setCommune.add(commune);
             }
-            if (entity.getCommunes() != null){
+            if (entity.getCommunes() != null) {
                 entity.getCommunes().clear();
                 entity.getCommunes().addAll(setCommune);
             } else {
@@ -101,7 +102,7 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
 
     @Override
     public boolean delById(UUID id) {
-        if (id != null){
+        if (id != null) {
             repos.deleteById(id);
             return true;
         }
@@ -110,21 +111,21 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
 
     @Override
     public Page<DistrictDto> searchByPage(DistrictSearchDto dto) {
-        if (dto == null){
+        if (dto == null) {
             return null;
         }
         int pageIndex = dto.getPageIndex();
         int pageSize = dto.getPageSize();
-        if(pageIndex > 0){
-            pageIndex --;
+        if (pageIndex > 0) {
+            pageIndex--;
         } else {
             pageIndex = 0;
         }
-        String whereClause= "";
+        String whereClause = "";
         String orderBy = "ORDER BY entity.createDate DESC";
         String sql = "select new com.globits.da.dto.DistrictDto(entity) from  District as entity where (1=1) ";
         String sqlCount = "select count(entity.id) from  District as entity where (1=1)";
-        if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())){
+        if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())) {
             whereClause += "AND (entity.name LIKE :text OR entity.code LIKE :text)";
         }
         sql += whereClause + orderBy;
@@ -132,19 +133,19 @@ public class DistrictServiceImpl extends GenericServiceImpl<District, UUID> impl
 
         Query q = manager.createQuery(sql, DistrictDto.class);
         Query qCount = manager.createQuery(sqlCount);
-        if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())){
+        if (dto.getKeyWord() != null && StringUtils.hasText(dto.getKeyWord())) {
             q.setParameter("text", "%" + dto.getKeyWord() + "%");
             qCount.setParameter("text", "%" + dto.getKeyWord() + "%");
         }
-        int startPosition = pageIndex*pageSize;
+        int startPosition = pageIndex * pageSize;
         q.setFirstResult(startPosition);
         q.setMaxResults(pageSize);
         List<DistrictDto> entities = q.getResultList();
         long count = (long) qCount.getSingleResult();
 
-        Pageable pageable = PageRequest.of(pageIndex,pageSize);
+        Pageable pageable = PageRequest.of(pageIndex, pageSize);
 
-        return new PageImpl<>(entities,pageable,count);
+        return new PageImpl<>(entities, pageable, count);
     }
 
     @Override

@@ -9,16 +9,16 @@ import java.util.List;
 import java.util.UUID;
 
 public interface EmployeeService {
-    // add employee
+
     Response<EmployeeDto> add(EmployeeDto employeeDto);
-    // edit employee
+
     Response<EmployeeDto> edit(UUID id, EmployeeDto employeeDto);
-    //get all employee
+
     List<EmployeeDto> getAllEmployee();
-    // delete employee
+
     boolean deleteById(UUID id);
-    // import file excel
+
     Response<List<EmployeeDto>> importExcel(MultipartFile file);
-    //export file excel
+
     ByteArrayInputStream exportExcel();
 }

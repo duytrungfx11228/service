@@ -13,36 +13,36 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/api/province")
+@RequestMapping(value = "/api/provinces")
 public class RestProvinceController {
     @Autowired
     private ProvinceService provinceService;
-    // save province
+
     @PostMapping
-    public ResponseEntity<ProvinceDto> add(@RequestBody ProvinceDto dto){
+    public ResponseEntity<ProvinceDto> add(@RequestBody ProvinceDto dto) {
         ProvinceDto result = provinceService.add(dto);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    // edit province
+
     @PutMapping("/{id}")
-    public ResponseEntity<ProvinceDto> edit(@PathVariable UUID id, @RequestBody ProvinceDto dto){
+    public ResponseEntity<ProvinceDto> edit(@PathVariable UUID id, @RequestBody ProvinceDto dto) {
         ProvinceDto result = provinceService.edit(id, dto);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    // delete province
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> deleteProvinc(@PathVariable UUID id){
+    public ResponseEntity<Boolean> deleteProvinc(@PathVariable UUID id) {
         return new ResponseEntity<>(provinceService.deletedById(id), HttpStatus.OK);
     }
-    // search province
-    @PostMapping("/searchByPage")
-    public ResponseEntity<Page<ProvinceDto>> search(@RequestBody ProvinceSearchDto searchDto){
+
+    @PostMapping("/search")
+    public ResponseEntity<Page<ProvinceDto>> search(@RequestBody ProvinceSearchDto searchDto) {
         Page<ProvinceDto> result = provinceService.searchByPage(searchDto);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    // get all province
+
     @GetMapping("/getList")
-    public ResponseEntity<List<ProvinceDto>> getList(){
+    public ResponseEntity<List<ProvinceDto>> getList() {
         List<ProvinceDto> result = provinceService.getAll();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

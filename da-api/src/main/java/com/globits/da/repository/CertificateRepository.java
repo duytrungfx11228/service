@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.UUID;
 @Repository
 public interface CertificateRepository extends JpaRepository<Certificate, UUID> {
-    @Query("select new com.globits.da.dto.CertificateDto(entity) from Certificate entity")
+    @Query("SELECT new com.globits.da.dto.CertificateDto(entity) FROM Certificate entity")
     List<CertificateDto> getAllCertificate();
-    // total Certificate by employee same type
-    @Query("select count (ce.id) from Certificate ce where ce.employee.id =?1 and ce.type=?2 and ce.dateExpiration > CURRENT_DATE ")
+
+    @Query("SELECT COUNT (ce.id) FROM Certificate ce WHERE ce.employee.id =?1 AND ce.type=?2 AND ce.dateExpiration > CURRENT_DATE ")
     int countCertificateByEmployee(UUID id, String type);
-    // total certificate by province same type
-    @Query("select count (ce.id) from Certificate ce where ce.employee.id=?1 and ce.province.id = ?2 and ce.type = ?3 and ce.dateExpiration > CURRENT_DATE ")
+
+    @Query("SELECT COUNT (ce.id) FROM Certificate ce WHERE ce.employee.id=?1 AND ce.province.id = ?2 AND ce.type = ?3 AND ce.dateExpiration > CURRENT_DATE ")
     int countCertificateByProvince(UUID id,UUID uuid,String type);
 }

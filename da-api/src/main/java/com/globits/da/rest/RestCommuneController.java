@@ -19,24 +19,27 @@ public class RestCommuneController {
     private CommuneService communeService;
 
     @PostMapping
-    public ResponseEntity<CommuneDto> add(@RequestBody CommuneDto dto){
+    public ResponseEntity<CommuneDto> add(@RequestBody CommuneDto dto) {
         return new ResponseEntity<>(communeService.add(dto), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CommuneDto> edit(@PathVariable UUID id, @RequestBody CommuneDto dto){
-        return new ResponseEntity<>(communeService.edit(id,dto), HttpStatus.OK);
+    public ResponseEntity<CommuneDto> edit(@PathVariable UUID id, @RequestBody CommuneDto dto) {
+        return new ResponseEntity<>(communeService.edit(id, dto), HttpStatus.OK);
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> delById(@PathVariable UUID id){
-        return  new ResponseEntity<>(communeService.delById(id), HttpStatus.OK);
+    public ResponseEntity<Boolean> delById(@PathVariable UUID id) {
+        return new ResponseEntity<>(communeService.delById(id), HttpStatus.OK);
     }
-    @GetMapping("/getList")
-    public ResponseEntity<List<CommuneDto>> getAll(){
+
+    @GetMapping("/get-all")
+    public ResponseEntity<List<CommuneDto>> getAll() {
         return new ResponseEntity<>(communeService.getAll(), HttpStatus.OK);
     }
-    @PostMapping("/searchByPage")
-    public ResponseEntity<Page<CommuneDto>> searchByPage(CommuneSearchDto dto){
+
+    @PostMapping("/search")
+    public ResponseEntity<Page<CommuneDto>> searchByPage(CommuneSearchDto dto) {
         return new ResponseEntity<>(communeService.searchByPage(dto), HttpStatus.OK);
     }
 }

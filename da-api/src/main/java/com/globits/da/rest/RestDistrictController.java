@@ -13,35 +13,39 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/district")
+@RequestMapping("/api/districts")
 public class RestDistrictController {
 
     @Autowired
     private DistrictService districtService;
 
     @PostMapping
-    public ResponseEntity<DistrictDto> add(@RequestBody DistrictDto dto){
+    public ResponseEntity<DistrictDto> add(@RequestBody DistrictDto dto) {
         return new ResponseEntity<>(districtService.add(dto), HttpStatus.OK);
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<DistrictDto> edit(@PathVariable UUID id, @RequestBody DistrictDto dto){
-        return  new ResponseEntity<>(districtService.edit(id,dto), HttpStatus.OK);
+    public ResponseEntity<DistrictDto> edit(@PathVariable UUID id, @RequestBody DistrictDto dto) {
+        return new ResponseEntity<>(districtService.edit(id, dto), HttpStatus.OK);
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> delById(@PathVariable UUID id){
+    public ResponseEntity<Boolean> delById(@PathVariable UUID id) {
         return new ResponseEntity<>(districtService.delById(id), HttpStatus.OK);
     }
-    @GetMapping("/getList")
-    public ResponseEntity<List<DistrictDto>> getList(){
+
+    @GetMapping("/get-all")
+    public ResponseEntity<List<DistrictDto>> getList() {
         return new ResponseEntity<>(districtService.getAll(), HttpStatus.OK);
     }
-    @PutMapping("/searchByPage")
-    public ResponseEntity<Page<DistrictDto>> searchByPage(@RequestBody DistrictSearchDto dto){
+
+    @PostMapping("/search")
+    public ResponseEntity<Page<DistrictDto>> searchByPage(@RequestBody DistrictSearchDto dto) {
         return new ResponseEntity<>(districtService.searchByPage(dto), HttpStatus.OK);
     }
-    // get list district by province id
-    @GetMapping("/getList/{id}")
-    public ResponseEntity<List<DistrictDto>> getListDistrict(@PathVariable UUID id){
+
+    @GetMapping("/get-list/{id}")
+    public ResponseEntity<List<DistrictDto>> getListDistrict(@PathVariable UUID id) {
         return new ResponseEntity<>(districtService.getDistrictByProvinceId(id), HttpStatus.OK);
     }
 }

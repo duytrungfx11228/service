@@ -12,9 +12,9 @@ import java.util.UUID;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, UUID> {
 
-    @Query("select new com.globits.da.dto.EmployeeDto(employee) from Employee employee")
+    @Query("SELECT new com.globits.da.dto.EmployeeDto(employee) FROM Employee employee")
     List<EmployeeDto> getListEmployee();
 
-    @Query("select count(entity.id) from Employee entity where entity.code =?1 ")
+    @Query("SELECT COUNT(entity.id) FROM Employee entity WHERE entity.code =?1 ")
     long countAllByCode(String code);
 }
