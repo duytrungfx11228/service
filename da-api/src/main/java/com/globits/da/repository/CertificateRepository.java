@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.UUID;
+
 @Repository
 public interface CertificateRepository extends JpaRepository<Certificate, UUID> {
     @Query("SELECT new com.globits.da.dto.CertificateDto(entity) FROM Certificate entity")
@@ -18,5 +19,5 @@ public interface CertificateRepository extends JpaRepository<Certificate, UUID> 
     int countCertificateByEmployee(UUID id, String type);
 
     @Query("SELECT COUNT (ce.id) FROM Certificate ce WHERE ce.employee.id=?1 AND ce.province.id = ?2 AND ce.type = ?3 AND ce.dateExpiration > CURRENT_DATE ")
-    int countCertificateByProvince(UUID id,UUID uuid,String type);
+    int countCertificateByProvince(UUID id, UUID uuid, String type);
 }
